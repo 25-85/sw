@@ -57,7 +57,8 @@
           "재킷",
           "셔츠",
           "블라우스",
-          "니트"
+          "니트",
+          "티셔츠"
           ]
           },
           {
@@ -65,7 +66,8 @@
           "medium_name": "하의",
           "small_categories": [
           "팬츠",
-          "스커트"
+          "스커트",
+          "청바지"
           ]
           },
           {
@@ -97,7 +99,8 @@
           "티셔츠",
           "셔츠",
           "블라우스",
-          "니트"
+          "니트",
+          "가디건"
           ]
           },
           {
@@ -106,7 +109,8 @@
           "small_categories": [
           "팬츠",
           "스커트",
-          "청바지"
+          "청바지",
+          "레깅스"
           ]
           },
           {
@@ -138,7 +142,8 @@
           "셔츠",
           "블라우스",
           "니트",
-          "스웨터"
+          "스웨터",
+          "가디건"
           ]
           },
           {
@@ -146,7 +151,8 @@
           "medium_name": "하의",
           "small_categories": [
           "팬츠",
-          "스커트"
+          "스커트",
+          "청바지"
           ]
           },
           {
@@ -178,7 +184,9 @@
           "티셔츠",
           "셔츠",
           "니트",
-          "아우터"
+          "아우터",
+          "블라우스",
+          "가디건"
           ]
           },
           {
@@ -187,7 +195,8 @@
           "small_categories": [
           "팬츠",
           "스커트",
-          "청바지"
+          "청바지",
+          "레깅스"
           ]
           },
           {
@@ -232,7 +241,8 @@
           "데님",
           "팬츠",
           "스웨트팬츠",
-          "스커트"
+          "스커트",
+          "레깅스"
           ]
           },
           {
@@ -251,8 +261,8 @@
     },
     {
           "brand_id": 7,
-          "brand_name": "MUSINSA STANDARD",
-          "website": "https://www.musinsa.com",
+          "brand_name": "8SECONDS",
+          "website": "https://www.8seconds.co.kr",
           "categories": [
           {
           "category_id": 7,
@@ -262,10 +272,13 @@
           "medium_id": 19,
           "medium_name": "상의",
           "small_categories": [
+          "아우터",
+          "코트",
+          "재킷",
           "티셔츠",
-          "셔츠",
           "니트",
-          "아우터"
+          "셔츠/블라우스",
+          "가디건"
           ]
           },
           {
@@ -274,7 +287,8 @@
           "small_categories": [
           "팬츠",
           "스커트",
-          "청바지"
+          "청바지",
+          "레깅스"
           ]
           },
           {
@@ -292,8 +306,8 @@
     },
     {
           "brand_id": 8,
-          "brand_name": "8SECONDS",
-          "website": "https://www.8seconds.co.kr",
+          "brand_name": "GIORDANO",
+          "website": "https://www.giordano.co.kr",
           "categories": [
           {
           "category_id": 8,
@@ -303,10 +317,12 @@
           "medium_id": 22,
           "medium_name": "상의",
           "small_categories": [
-          "아우터",
           "티셔츠",
+          "셔츠",
+          "블라우스",
           "니트",
-          "셔츠/블라우스"
+          "스웨터",
+          "가디건"
           ]
           },
           {
@@ -314,16 +330,203 @@
           "medium_name": "하의",
           "small_categories": [
           "팬츠",
-          "스커트"
+          "스커트",
+          "청바지",
+          "반바지",
+          "레깅스"
           ]
           },
           {
           "medium_id": 24,
           "medium_name": "기타",
           "small_categories": [
+          "아우터",
           "신발",
           "가방",
           "액세서리"
+          ]
+          }
+          ]
+          }
+          ]
+    },
+    {
+          "brand_id": 9,
+          "brand_name": "MIXXO",
+          "website": "https://www.mixxo.com",
+          "categories": [
+          {
+          "category_id": 9,
+          "large_category": "여성",
+          "medium_categories": [
+          {
+          "medium_id": 25,
+          "medium_name": "상의",
+          "small_categories": [
+          "티셔츠",
+          "셔츠",
+          "블라우스",
+          "니트",
+          "가디건",
+          "아우터",
+          "스웨터"
+          ]
+          },
+          {
+          "medium_id": 26,
+          "medium_name": "하의",
+          "small_categories": [
+          "팬츠",
+          "스커트",
+          "청바지",
+          "레깅스",
+          "반바지"
+          ]
+          },
+          {
+          "medium_id": 27,
+          "medium_name": "기타",
+          "small_categories": [
+          "원피스",
+          "신발",
+          "가방",
+          "액세서리"
+          ]
+          }
+          ]
+          }
+          ]
+    },
+    {
+          "brand_id": 10,
+          "brand_name": "MUSINSA STANDARD",
+          "website": "https://www.musinsa.com",
+          "categories": [
+          {
+          "category_id": 10,
+          "large_category": "여성",
+          "medium_categories": [
+          {
+          "medium_id": 28,
+          "medium_name": "상의",
+          "small_categories": [
+          "티셔츠",
+          "셔츠",
+          "니트",
+          "아우터",
+          "블라우스",
+          "가디건",
+          "스웨터"
+          ]
+          },
+          {
+          "medium_id": 29,
+          "medium_name": "하의",
+          "small_categories": [
+          "팬츠",
+          "스커트",
+          "청바지",
+          "레깅스"
+          ]
+          },
+          {
+          "medium_id": 30,
+          "medium_name": "기타",
+          "small_categories": [
+          "신발",
+          "가방",
+          "액세서리",
+          "원피스"
+          ]
+          }
+          ]
+          }
+          ]
+    },
+    {
+          "brand_id": 11,
+          "brand_name": "ADIDAS",
+          "website": "https://www.adidas.co.kr",
+          "categories": [
+          {
+          "category_id": 11,
+          "large_category": "여성",
+          "medium_categories": [
+          {
+          "medium_id": 31,
+          "medium_name": "상의",
+          "small_categories": [
+          "티셔츠",
+          "탱크탑",
+          "스포츠 브라",
+          "후드",
+          "스웨트셔츠",
+          "조끼"
+          ]
+          },
+          {
+          "medium_id": 32,
+          "medium_name": "하의",
+          "small_categories": [
+          "팬츠",
+          "레깅스",
+          "반바지",
+          "스커트"
+          ]
+          },
+          {
+          "medium_id": 33,
+          "medium_name": "기타",
+          "small_categories": [
+          "신발",
+          "가방",
+          "액세서리",
+          "양말"
+          ]
+          }
+          ]
+          }
+          ]
+    },
+    {
+          "brand_id": 12,
+          "brand_name": "NIKE",
+          "website": "https://www.nike.com/kr",
+          "categories": [
+          {
+          "category_id": 12,
+          "large_category": "여성",
+          "medium_categories": [
+          {
+          "medium_id": 34,
+          "medium_name": "상의",
+          "small_categories": [
+          "티셔츠",
+          "탱크탑",
+          "스포츠 브라",
+          "후드",
+          "스웨트셔츠",
+          "재킷"
+          ]
+          },
+          {
+          "medium_id": 35,
+          "medium_name": "하의",
+          "small_categories": [
+          "팬츠",
+          "레깅스",
+          "반바지",
+          "스커트"
+          ]
+          },
+          {
+          "medium_id": 36,
+          "medium_name": "기타",
+          "small_categories": [
+          "신발",
+          "가방",
+          "액세서리",
+          "양말"
           ]
           }
           ]
