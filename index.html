@@ -48,6 +48,7 @@
       <!-- 1. 홈 화면 (와이어프레임 1) -->
       <section id="page-home" class="page-section active">
         <div class="wire-container">
+
           <div class="banner-card clickable" onclick="startMeasure()">
             <h2>입어보지 않아도,<br>내 옷과 딱 맞는 사이즈</h2>
             <div class="skeleton-lines"><div class="sk-line w-80"></div><div class="sk-line w-60"></div></div>
@@ -59,7 +60,12 @@
             <div class="step-card"><h4>2 옷 입력</h4><p>상품 사진과 사이즈표를 올려요.</p></div>
             <div class="step-card"><h4>3 사이즈 판정</h4><p>추천 사이즈와 cm 차이를 확인해요.</p></div>
           </div>
-          <div class="section-title row-between">내 체형에 맞는 브랜드 <button class="link-btn" onclick="navigateTo('brand')">더보기 ›</button></div>
+
+          <!-- 맞춤 상품 추천 섹션 -->
+          <div class="section-title row-between">내 체형 맞춤 추천 상품</div>
+          <div id="home-recommended-items" class="mt-10"></div>
+
+          <div class="section-title row-between mt-20">내 체형에 맞는 브랜드 <button class="link-btn" onclick="navigateTo('brand')">더보기 ›</button></div>
           <div id="home-brands"></div>
         </div>
       </section>
@@ -150,7 +156,7 @@
           <div class="field-section-title">사진·캡처 (여러 장)</div>
           <input type="file" id="cloth-files" accept="image/*" multiple hidden onchange="handleClothFiles(event)">
           <div class="attach-list" id="cloth-attach-list"></div>
-          <button type="button" class="dashed-add-btn" onclick="$('cloth-files').click()">+ 사진·캡처 추가</button>
+          <button type="button" class="dashed-add-btn" onclick="document.getElementById('cloth-files').click()">+ 사진·캡처 추가</button>
 
           <div class="field-section-title">사이즈 라벨</div>
           <div class="chip-group" id="size-chips"></div>
@@ -220,7 +226,7 @@
 
             <div class="field-section-title">본인이 입은 옷 사진</div>
             <input type="file" id="fb-photo-file" accept="image/*" hidden onchange="handleFeedbackPhoto(event)">
-            <button type="button" class="wire-x-box photo-upload-sm upload-trigger" onclick="$('fb-photo-file').click()"><span>📷 사진 업로드</span></button>
+            <button type="button" class="wire-x-box photo-upload-sm upload-trigger" onclick="document.getElementById('fb-photo-file').click()"><span>📷 사진 업로드</span></button>
             <div id="fb-photo-preview" class="photo-preview-grid"></div>
 
             <div class="field-section-title">사진 소스</div>
@@ -262,19 +268,23 @@
             <p class="sub-info mb-10">신체 둘레는 단면 너비가 아닌 몸을 한 바퀴 재낸 값입니다.</p>
 
             <div class="form-row">
-              <div class="form-field"><label>키</label><div class="unit-input"><input type="number" value="178"><span>cm</span></div></div>
-              <div class="form-field"><label>가슴 둘레</label><div class="unit-input"><input type="number" value="96"><span>cm</span></div></div>
+              <div class="form-field"><label>키</label><div class="unit-input"><input type="number" id="prof-height" value="160"><span>cm</span></div></div>
+              <div class="form-field"><label>체중</label><div class="unit-input"><input type="number" id="prof-weight" value="52"><span>kg</span></div></div>
             </div>
             <div class="form-row">
-              <div class="form-field"><label>허리 둘레</label><div class="unit-input"><input type="number" value="80"><span>cm</span></div></div>
-              <div class="form-field"><label>엉덩이 둘레</label><div class="unit-input"><input type="number" value="96"><span>cm</span></div></div>
+              <div class="form-field"><label>가슴 둘레</label><div class="unit-input"><input type="number" id="prof-chest" value="82"><span>cm</span></div></div>
+              <div class="form-field"><label>허리 둘레</label><div class="unit-input"><input type="number" id="prof-waist" value="64"><span>cm</span></div></div>
+            </div>
+            <div class="form-row">
+              <div class="form-field"><label>엉덩이 둘레</label><div class="unit-input"><input type="number" id="prof-hip" value="92"><span>cm</span></div></div>
+              <div class="form-field"><label>평소 선호 사이즈</label><div class="unit-input"><input type="text" id="prof-size" value="S" placeholder="예: S, M, 55"></div></div>
             </div>
 
             <div class="field-section-title">선호 핏</div>
             <div class="fit-pref-selector">
-              <div class="pref-box"><strong>슬림 핏</strong><span>몸의 라인에 가깝게</span></div>
-              <div class="pref-box active"><strong>기본 핏 ✓</strong><span>적당한 여유로 자연스럽게</span></div>
-              <div class="pref-box"><strong>여유 핏</strong><span>넉넉하고 편안하게</span></div>
+              <div class="pref-box" onclick="selectPrefOption(this, '슬림 핏')"><strong>슬림 핏</strong><span>몸의 라인에 가깝게</span></div>
+              <div class="pref-box active" onclick="selectPrefOption(this, '기본 핏')"><strong>기본 핏 ✓</strong><span>적당한 여유로 자연스럽게</span></div>
+              <div class="pref-box" onclick="selectPrefOption(this, '여유 핏')"><strong>여유 핏</strong><span>넉넉하고 편안하게</span></div>
             </div>
 
             <button class="btn btn-dark full-btn mt-15" onclick="saveProfile()">프로필 저장</button>
@@ -306,7 +316,7 @@
       <section id="page-brand" class="page-section">
         <div class="wire-container">
           <h3>내 체형 맞춤 브랜드</h3>
-          <p class="sub-info mb-10">저장한 신체 사이즈·선호 핏 기준 · 예시 데이터</p>
+          <p class="sub-info mb-10">저장한 신체 사이즈·선호 핏 기준 연동 데이터</p>
           <div class="pill-group" id="brand-cats"></div>
           <div id="brand-list"></div>
           <h3 class="mt-20">저장 브랜드</h3>
@@ -342,6 +352,109 @@
       <div id="brand-modal-body"></div>
     </div>
   </div>
+
+  <!-- 외부 데이터 파일 연동 스크립트 -->
+  <script>
+    // 전역 외부 데이터 저장소
+    window.APP_DATA = {
+      items: [],
+      brandsWomen: [],
+      userData: null,
+      reviews: []
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // items.json, brands_women.json, user.json, reviews.json 연동
+      Promise.all([
+        fetch('items.json').then(r => r.ok ? r.json() : fetch('data/items.json').then(res => res.json())),
+        fetch('brands_women.json').then(r => r.ok ? r.json() : fetch('data/brands_women.json').then(res => res.json())),
+        fetch('user.json').then(r => r.ok ? r.json() : fetch('data/user.json').then(res => res.json())),
+        fetch('reviews.json').then(r => r.ok ? r.json() : fetch('data/reviews.json').then(res => res.json()))
+      ])
+      .then(([itemsData, brandsData, userData, reviewsData]) => {
+        window.APP_DATA.items = Array.isArray(itemsData) ? itemsData : (itemsData.items || []);
+        window.APP_DATA.brandsWomen = brandsData.brands || [];
+        window.APP_DATA.userData = userData;
+        window.APP_DATA.reviews = Array.isArray(reviewsData) ? reviewsData : (userData.reviews || []);
+
+        // 데이터 연동 완료 후 UI 초기화/갱신
+        if (typeof initializeAuth === 'function') initializeAuth();
+        renderUserDataCard();
+        renderRecommendedItems();
+      })
+      .catch(err => {
+        console.warn('외부 데이터 로딩 오류 (기본 더미 모드로 동작):', err);
+        if (typeof initializeAuth === 'function') initializeAuth();
+      });
+    });
+
+    // 1. 사용자 신체 프로필 카드 렌더링
+    function renderUserDataCard() {
+      const container = document.getElementById('home-user-card');
+      if (!container) return;
+
+      const user = window.APP_DATA.userData || {};
+      const body = (typeof myBody === 'function') ? myBody() : { h: 160, w: 52 };
+      
+      container.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <h4 style="font-size:14px; margin-bottom:4px;"><strong>${currentUser || user.name || '사용자'}</strong> 님의 신체 스펙</h4>
+            <p class="sub-info">키: ${body.h || 160}cm | 체중: ${body.w || 52}kg | 가슴: ${body.chest || 82}cm | 허리: ${body.waist || 64}cm</p>
+          </div>
+          <button class="btn btn-outline btn-sm" onclick="navigateTo('mypage'); switchMypageTab('profile');">수정</button>
+        </div>
+      `;
+    }
+
+    // 2. 추천 상품 렌더링 (items & user & reviews 연동)
+    function renderRecommendedItems() {
+      const container = document.getElementById('home-recommended-items');
+      if (!container) return;
+
+      const items = window.APP_DATA.items;
+      if (!items || items.length === 0) {
+        container.innerHTML = '<p class="sub-info">연동된 추천 상품이 없습니다.</p>';
+        return;
+      }
+
+      // 사용자 키/몸무게 맞춤 추천 사이즈 계산
+      const userBody = (typeof myBody === 'function') ? myBody() : { h: 160, w: 52 };
+
+      // 상위 4개 상품 맞춤 표시
+      const displayItems = items.slice(0, 4).map(item => {
+        const recSize = item.labeledSize || (userBody.w > 65 ? 'L' : userBody.w > 53 ? 'M' : 'S');
+        return `
+          <div class="wire-card brand-row mb-10" style="display:flex; gap:12px; align-items:center;">
+            <div class="brand-mini-icon">${(item.brand || '핏')[0]}</div>
+            <div style="flex:1; min-width:0;">
+              <span class="badge active" style="margin-bottom:2px; display:inline-block;">${item.category || '의류'}</span>
+              <h4 style="font-size:13px; margin:2px 0;">[${item.brand}] ${item.itemName}</h4>
+              <p class="sub-info">추천 사이즈: <strong>${recSize}</strong> | ${item.price ? Number(item.price).toLocaleString() + '원' : '가격 정보 없음'}</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="startMeasureWithItem('${item.itemName}', '${recSize}')">핏 분석</button>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = displayItems;
+    }
+
+    // 선택 상품으로 사이즈 측정 연결 헬퍼
+    function startMeasureWithItem(name, size) {
+      if (typeof startMeasure === 'function') startMeasure();
+      const nameInput = document.getElementById('item-name');
+      if (nameInput) nameInput.value = name;
+      if (typeof pickSize === 'function') pickSize(size);
+    }
+
+    // 선호 핏 선택 헬퍼
+    function selectPrefOption(el, prefText) {
+      document.querySelectorAll('.fit-pref-selector .pref-box').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      if (typeof setPref === 'function') setPref(prefText);
+    }
+  </script>
 
   <script src="js/app.js"></script>
 </body>
